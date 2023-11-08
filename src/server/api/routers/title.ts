@@ -12,15 +12,15 @@ const openai = new OpenAI({
 
 export const titleRouter = createTRPCRouter({
   getAiTitle: publicProcedure.query(async () => {
-    try {
-      const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "You are a helpful assistant." }],
-        model: "gpt-3.5-turbo",
-      });
-      //console.log("completion.choices:", completion.choices[0]);
-      return completion.choices[0];
-    } catch (error) {
-      console.error("error:", error);
-    }
+    // try {
+    //   const completion = await openai.chat.completions.create({
+    //     messages: [{ role: "system", content: "You are a helpful assistant." }],
+    //     model: "gpt-3.5-turbo",
+    //   });
+    //   return completion.choices[0];
+    // } catch (error) {
+    //   console.error("error:", error);
+    // }
+    return "AI generated title";
   }),
 });
