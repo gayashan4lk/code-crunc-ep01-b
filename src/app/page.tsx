@@ -1,8 +1,10 @@
+import OpenAI from "openai";
+
 import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
-  const title = await api.title.getAiTitle.query();
+  const getAiTitle = await api.title.getAiTitle.query();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
@@ -12,7 +14,7 @@ export default async function Home() {
         </h1>
         <div className="flex flex-col items-center gap-2">
           <p className="text-2xl text-white">
-            {title ? title.toString() : "Loading tRPC query..."}
+            {getAiTitle ? getAiTitle.message.content : "Loading tRPC query..."}
           </p>
         </div>
         <CrudShowcase />
