@@ -14,7 +14,7 @@ export default async function Home() {
         </h1>
         <div className="flex flex-col items-center gap-2">
           <p className="text-2xl text-white">
-            {getAiTitle ? getAiTitle.message.content : "Loading tRPC query..."}
+            {getAiTitle ? getAiTitle.toString() : "Loading tRPC query..."}
           </p>
         </div>
         <CrudShowcase />
